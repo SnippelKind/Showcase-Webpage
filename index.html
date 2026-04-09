@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakura Studio</title>
+  <meta name="description" content="Sakura Studio – Professionelle Shootings für Familien, Paare, Einzelpersonen und Automotive. Faire Preise, Top Qualität.">
+  <meta property="og:title" content="Sakura Studio">
+  <meta property="og:description" content="Professionelle Shootings zu fairen Preisen. Familien, Paare, Automotive – Top Qualität garantiert.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/Logo_Hell.png">
+  <link rel="apple-touch-icon" href="assets/Logo_Hell.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+    <div class="loading-screen-inner">
+      <div class="loading-spinner"></div>
+      <span class="loading-text">Laden</span>
+    </div>
+  </div>
+
+  <!-- Willkommens-Modal (RP / Disclaimer) -->
+  <div class="welcome-modal" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-modal-backdrop"></div>
+    <div class="welcome-modal-box">
+      <div class="welcome-modal-shine" aria-hidden="true"></div>
+      <div class="welcome-modal-logo">
+        <img src="assets/Logo_Hell.png" alt="Sakura Studio" class="welcome-logo welcome-logo-light">
+        <img src="assets/Logo_Dunkel.png" alt="Sakura Studio" class="welcome-logo welcome-logo-dark">
+      </div>
+      <h2 class="welcome-modal-title" id="welcomeTitle">Sakura Studio</h2>
+      <p class="welcome-modal-text">Diese Seite dient ausschließlich <strong>Rollenspiel (RP)</strong> und Unterhaltungszwecken.</p>
+      <div class="welcome-modal-disclaimer-wrap">
+        <p class="welcome-modal-disclaimer">Keine Zugehörigkeit zu Take Two Interactive, Rockstar Games oder verbundenen Marken. Alle genannten Namen und Marken gehören ihren jeweiligen Rechteinhabern.</p>
+      </div>
+      <button type="button" class="welcome-modal-btn" id="welcomeModalBtn">
+        <span>Eintreten</span>
+        <svg class="welcome-modal-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Parallax-Hintergrund (ganze Seite) -->
+  <div class="parallax-site-bg" aria-hidden="true">
+    <div class="parallax-shape parallax-shape-1"></div>
+    <div class="parallax-shape parallax-shape-2"></div>
+    <div class="parallax-shape parallax-shape-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#hero" class="nav-logo">
+      <img src="assets/Logo_Hell.png" alt="Sakura Studio" class="logo logo-light">
+      <img src="assets/Logo_Dunkel.png" alt="Sakura Studio" class="logo logo-dark">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Start</a></li>
+      <li><a href="#about">Über uns</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#services">Leistungen</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#mitarbeiter">Mitarbeiter</a></li>
+      <li><a href="#testimonials">Stimmen</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Hell/Dunkel Modus wechseln">
+        <span class="theme-icon sun">☀</span>
+        <span class="theme-icon moon">☽</span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-logo-wrap">
+        <img src="assets/Logo_Hell.png" alt="" class="hero-logo hero-logo-light" width="160" height="160">
+        <img src="assets/Logo_Dunkel.png" alt="" class="hero-logo hero-logo-dark" width="160" height="160">
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line">Sakura</span>
+        <span class="hero-title-line hero-title-line-sub">Studio</span>
+      </h1>
+      <p class="hero-tagline">Dein Moment. Dein Bild.</p>
+      <p class="hero-sub">Portrait, Familien, Automotive &amp; Video – professionelle Shootings zu fairen Preisen. Wir machen deinen Moment unvergesslich.</p>
+      <div class="hero-cta">
+        <a href="https://discord.gg/cvZYhA9sAB" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <span>Termin anfragen</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#gallery" class="btn btn-secondary">
+          <span>Galerie</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text scroll-reveal">
+          <span class="section-label">Über uns</span>
+          <h2>Wir sind Sakura Studio.</h2>
+          <p>Hochwertige Shootings für Familien, Einzelpersonen, Pärchen oder dein Auto – bei uns bekommst du professionelle Fotos zum fairen Preis. Top Qualität ist garantiert. Schreib uns für deinen Termin!</p>
+          <div class="about-stats">
+            <div class="stat scroll-reveal"><span class="stat-num" data-target="1000" data-suffix="+">0</span><span class="stat-label">Shootings</span></div>
+            <div class="stat scroll-reveal"><span class="stat-num" data-target="8">0</span><span class="stat-label">Jahre Erfahrung</span></div>
+            <div class="stat scroll-reveal"><span class="stat-num" data-target="100">0</span><span class="stat-label">% Leidenschaft</span></div>
+          </div>
+        </div>
+        <div class="about-visual scroll-reveal">
+          <div class="about-frame">
+            <img src="fotos/Mappe1.png" alt="Studio Einblick">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section gallery" id="gallery">
+    <div class="container container--gallery">
+      <header class="gallery-header scroll-reveal">
+        <span class="section-label">Galerie</span>
+        <h2>Aus unserer Arbeit</h2>
+        <p class="gallery-intro">Klicke auf ein Bild, um es zu vergrößern.</p>
+        <div class="gallery-filters">
+          <button type="button" class="gallery-filter active" data-filter="all">Alle</button>
+          <button type="button" class="gallery-filter" data-filter="automotive">Automotive</button>
+          <button type="button" class="gallery-filter" data-filter="familien">Familien</button>
+          <button type="button" class="gallery-filter" data-filter="animiert">Animiert</button>
+          <button type="button" class="gallery-filter" data-filter="portrait">Portrait</button>
+        </div>
+      </header>
+      <div class="gallery-grid" id="galleryGrid" aria-live="polite">
+        <p class="gallery-loading" id="galleryLoading">Galerie wird geladen …</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services (an Preisliste angelehnt: Portrait, Familien, Animiert, Automotive, Design, Video) -->
+  <section class="section services" id="services">
+    <div class="container">
+      <header class="services-header scroll-reveal">
+        <span class="section-label">Leistungen</span>
+        <h2>Was wir anbieten</h2>
+        <p class="services-lead">Portrait, Familien, animierte Bilder, Automotive, Design und Video – passend zu unserer Preisliste. Einfach anrufen und Termin sichern.</p>
+      </header>
+      <div class="services-grid">
+        <article class="service-card scroll-reveal" style="--delay: 0">
+          <span class="service-card-num" aria-hidden="true">01</span>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <h3 class="service-card-title">Portrait</h3>
+          <p class="service-card-desc">Einzelpersonen und Pärchen: bearbeitete Bilder in entspannter Atmosphäre. Jedes 5. Bild gratis – Details in der Preisliste unter „Bilder“.</p>
+        </article>
+        <article class="service-card service-card--feature scroll-reveal" style="--delay: 1">
+          <span class="service-card-num" aria-hidden="true">02</span>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="service-card-title">Familien</h3>
+          <p class="service-card-desc">Familien-Shootings, die eure gemeinsame Zeit einfangen. Familien Bilder mit fairem Paket – jedes 5. Bild gratis. Siehe Preisliste.</p>
+        </article>
+        <article class="service-card scroll-reveal" style="--delay: 2">
+          <span class="service-card-num" aria-hidden="true">03</span>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </div>
+          <h3 class="service-card-title">Animiert</h3>
+          <p class="service-card-desc">Animierte Bilder (z. B. GIFs) für Social Media oder persönliche Nutzung. Jedes 4. Bild gratis – siehe „Animiertes Bild“ in der Preisliste.</p>
+        </article>
+        <article class="service-card scroll-reveal" style="--delay: 3">
+          <span class="service-card-num" aria-hidden="true">04</span>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4H5v4zM5 9l2-4h10l2 4"/><circle cx="7.5" cy="16" r="1.5"/><circle cx="16.5" cy="16" r="1.5"/></svg>
+          </div>
+          <h3 class="service-card-title">Automotive</h3>
+          <p class="service-card-desc">Fahrzeugfotografie – dein Auto in Szene gesetzt. Ob für dich oder zum Verkauf. Preise wie bei bearbeiteten Bildern, einfach anfragen.</p>
+        </article>
+        <article class="service-card scroll-reveal" style="--delay: 4">
+          <span class="service-card-num" aria-hidden="true">05</span>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6L12 13 2 6"/></svg>
+          </div>
+          <h3 class="service-card-title">Design</h3>
+          <p class="service-card-desc">Kooperations-Banner und Flyer – professionell umgesetzt. Preise siehe Preisliste unter „Design“ (Banner, Flyer).</p>
+        </article>
+        <article class="service-card scroll-reveal" style="--delay: 5">
+          <span class="service-card-num" aria-hidden="true">06</span>
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3 class="service-card-title">Video</h3>
+          <p class="service-card-desc">Videos aus einer Hand – Konzept, Dreh und Schnitt. Details und Preise in der Preisliste unter „Video“.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preise -->
+  <section class="section preise" id="preise">
+    <div class="container">
+      <header class="preise-header scroll-reveal">
+        <span class="section-label">Preise</span>
+        <h2>Preisliste</h2>
+        <p class="preise-lead">Transparente Preise – bei Fragen einfach anrufen.</p>
+      </header>
+      <div class="preise-grid">
+        <article class="preise-card scroll-reveal" style="--delay: 0">
+          <div class="preise-card-header">
+            <span class="preise-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </span>
+            <h3 class="preise-card-title">Bilder</h3>
+          </div>
+          <ul class="preise-list">
+            <li class="preise-row"><span class="preise-name">Unbearbeitete Bilder</span><span class="preise-price">10.000 €</span></li>
+            <li class="preise-row"><span class="preise-name">Bearbeitete Bilder</span><span class="preise-price">70.000 €</span><span class="preise-note">Jedes 5. Bild gratis</span></li>
+            <li class="preise-row"><span class="preise-name">Familien Bilder</span><span class="preise-price">80.000 €</span><span class="preise-note">Jedes 5. Bild gratis</span></li>
+            <li class="preise-row"><span class="preise-name">Animiertes Bild</span><span class="preise-price">100.000 €</span><span class="preise-note">Jedes 4. Bild gratis</span></li>
+          </ul>
+        </article>
+        <article class="preise-card scroll-reveal" style="--delay: 1">
+          <div class="preise-card-header">
+            <span class="preise-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6L12 13 2 6"/></svg>
+            </span>
+            <h3 class="preise-card-title">Design</h3>
+          </div>
+          <ul class="preise-list">
+            <li class="preise-row"><span class="preise-name">Kooperations Banner</span><span class="preise-price">50.000 €</span></li>
+            <li class="preise-row"><span class="preise-name">Bushaltestelle</span><span class="preise-price">50.000 €</span><span class="preise-note">Ingesamt 3 in der Stadt</span></li>
+            <li class="preise-row"><span class="preise-name">Flyer Erstellen</span><span class="preise-price">70.000 €</span></li>
+            <li class="preise-row"><span class="preise-name">Werbetafel</span><span class="preise-price">100.000 €</span><span class="preise-note">Am Flughafen</span></li>
+            <li class="preise-row"><span class="preise-name">Werbetafel (XL)</span><span class="preise-price">200.000 €</span><span class="preise-note">Am Stadtpark Mitte</span></li>
+          </ul>
+        </article>
+        <article class="preise-card scroll-reveal" style="--delay: 2">
+          <div class="preise-card-header">
+            <span class="preise-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </span>
+            <h3 class="preise-card-title">Video</h3>
+          </div>
+          <ul class="preise-list">
+            <li class="preise-row"><span class="preise-name">Video (30 Sek.)</span><span class="preise-price">250.000 €</span></li>
+            <li class="preise-row"><span class="preise-name">Weitere 30 Sek.</span><span class="preise-price">250.000 €</span></li>
+          </ul>
+        </article>
+        <article class="preise-card preise-card--highlight scroll-reveal" style="--delay: 3">
+          <div class="preise-card-header">
+            <span class="preise-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </span>
+            <h3 class="preise-card-title">Sonstiges</h3>
+          </div>
+          <ul class="preise-list">
+            <li class="preise-row"><span class="preise-name">Importieren</span><span class="preise-price">Kostenlos</span><span class="preise-note">Keine KI/AI Bilder</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mitarbeiter -->
+  <section class="section mitarbeiter" id="mitarbeiter">
+    <div class="container">
+      <header class="section-header scroll-reveal">
+        <span class="section-label">Team</span>
+        <h2>Mitarbeiter</h2>
+        <p class="preise-lead">Die Menschen hinter Sakura Studio.</p>
+      </header>
+      <div class="mitarbeiter-grid">
+        <article class="mitarbeiter-card scroll-reveal" style="--delay: 0">
+          <div class="mitarbeiter-photo">
+            <img src="mitarbeiter/Marcel_Eichhörnchen.png" alt="Marcel Eichhörnchen" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="mitarbeiter-placeholder" aria-hidden="true">
+              <span class="mitarbeiter-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="mitarbeiter-placeholder-text">Wird gerade geschossen</span>
+            </div>
+          </div>
+          <h3 class="mitarbeiter-name">Marcel Eichhörnchen</h3>
+          <p class="mitarbeiter-role">Geschäftsführung</p>
+        </article>
+        <article class="mitarbeiter-card scroll-reveal" style="--delay: 1">
+          <div class="mitarbeiter-photo">
+            <img src="mitarbeiter/Luca_Eichhörnchen.png" alt="Luca Eichhörnchen" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="mitarbeiter-placeholder" aria-hidden="true">
+              <span class="mitarbeiter-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="mitarbeiter-placeholder-text">Wird gerade geschossen</span>
+            </div>
+          </div>
+          <h3 class="mitarbeiter-name">Luca Eichhörnchen</h3>
+          <p class="mitarbeiter-role">Manager</p>
+        </article>
+        <article class="mitarbeiter-card scroll-reveal" style="--delay: 2">
+          <div class="mitarbeiter-photo">
+            <img src="mitarbeiter/Dior_Bonse.png" alt="Dior Bonse" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="mitarbeiter-placeholder" aria-hidden="true">
+              <span class="mitarbeiter-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="mitarbeiter-placeholder-text">Wird gerade geschossen</span>
+            </div>
+          </div>
+          <h3 class="mitarbeiter-name">Dior Bonse</h3>
+          <p class="mitarbeiter-role">Fotograf</p>
+        </article>
+        <article class="mitarbeiter-card scroll-reveal" style="--delay: 4">
+          <div class="mitarbeiter-photo">
+            <img src="mitarbeiter/Carla_Watson.png" alt="Carla Watson" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="mitarbeiter-placeholder" aria-hidden="true">
+              <span class="mitarbeiter-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="mitarbeiter-placeholder-text">Wird gerade geschossen</span>
+            </div>
+          </div>
+          <h3 class="mitarbeiter-name">Carla Watson</h3>
+          <p class="mitarbeiter-role">Fotografin</p>
+        </article>
+        <article class="mitarbeiter-card scroll-reveal" style="--delay: 6">
+          <div class="mitarbeiter-photo">
+            <img src="mitarbeiter/Lazzo_Hajime.png" alt="Lazzo Hajime" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="mitarbeiter-placeholder" aria-hidden="true">
+              <span class="mitarbeiter-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="mitarbeiter-placeholder-text">Wird gerade geschossen</span>
+            </div>
+          </div>
+          <h3 class="mitarbeiter-name">Peter Diaz</h3>
+          <p class="mitarbeiter-role">Fotograf</p>
+        </article>
+        <article class="mitarbeiter-card scroll-reveal" style="--delay: 7">
+          <div class="mitarbeiter-photo">
+            <img src="mitarbeiter/Jil_Hajime.png" alt="Jil Hajime" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="mitarbeiter-placeholder" aria-hidden="true">
+              <span class="mitarbeiter-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="mitarbeiter-placeholder-text">Wird gerade geschossen</span>
+            </div>
+          </div>
+          <h3 class="mitarbeiter-name">Soula Diaz</h3>
+          <p class="mitarbeiter-role">Fotografin</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (Marquee: alle nebeneinander, endlos rechts → links) -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <header class="section-header scroll-reveal">
+        <span class="section-label">Stimmen</span>
+        <h2>Was andere sagen</h2>
+      </header>
+      <div class="testimonials-track" aria-hidden="true">
+        <div class="testimonials-strip">
+          <blockquote class="testimonial-card">
+            <p>„Super Ergebnis, sehr professionell und unkompliziert. Gerne wieder!“</p>
+            <cite>— Zufriedener Kunde</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Endlich Fotos, mit denen ich zufrieden bin – Atmosphäre und Ergebnis haben überzeugt.“</p>
+            <cite>— Stammkunde</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Schnell, unkompliziert und die Bilder sind genau so geworden, wie ich es mir vorgestellt habe.“</p>
+            <cite>— Wiederkehrender Gast</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Faire Preise und ein Ergebnis, auf das wir stolz sind. Empfehlung!“</p>
+            <cite>— Familie M.</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Unser Auto wurde richtig in Szene gesetzt – genau das, was wir gesucht haben.“</p>
+            <cite>— Automotive-Kunde</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Termin war easy, Ablauf entspannt. Die Fotos hängen bei uns zu Hause.“</p>
+            <cite>— Pärchen-Shooting</cite>
+          </blockquote>
+          <!-- Duplikat für nahtlose Endlosschleife -->
+          <blockquote class="testimonial-card">
+            <p>„Super Ergebnis, sehr professionell und unkompliziert. Gerne wieder!“</p>
+            <cite>— Zufriedener Kunde</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Endlich Fotos, mit denen ich zufrieden bin – Atmosphäre und Ergebnis haben überzeugt.“</p>
+            <cite>— Stammkunde</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Schnell, unkompliziert und die Bilder sind genau so geworden, wie ich es mir vorgestellt habe.“</p>
+            <cite>— Wiederkehrender Gast</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Faire Preise und ein Ergebnis, auf das wir stolz sind. Empfehlung!“</p>
+            <cite>— Familie M.</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Unser Auto wurde richtig in Szene gesetzt – genau das, was wir gesucht haben.“</p>
+            <cite>— Automotive-Kunde</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>„Termin war easy, Ablauf entspannt. Die Fotos hängen bei uns zu Hause.“</p>
+            <cite>— Pärchen-Shooting</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <header class="section-header scroll-reveal">
+        <span class="section-label">FAQ</span>
+        <h2>Häufige Fragen</h2>
+        <p class="section-lead">Kurz und klar – bei weiteren Fragen einfach anrufen.</p>
+      </header>
+      <div class="faq-list">
+        <details class="faq-item scroll-reveal">
+          <summary>Wo findet das Shooting statt?</summary>
+          <div class="faq-item-content">
+            <p>In der Regel im Sakura Studio (PLZ 5064). Für Automotive oder besondere Wünsche können wir nach Absprache auch andere Locations nutzen.</p>
+          </div>
+        </details>
+        <details class="faq-item scroll-reveal">
+          <summary>Was kostet ein Shooting?</summary>
+          <div class="faq-item-content">
+            <p>Die Preise findest du in unserer <a href="#preise">Preisliste</a>. Es gibt Pakete für bearbeitete Bilder, Familien und animierte Bilder (inkl. Gratis-Bilder). Für individuelle Anfragen einfach per Telefon melden – wir beraten dich gern.</p>
+          </div>
+        </details>
+        <details class="faq-item scroll-reveal">
+          <summary>Wie buche ich einen Termin?</summary>
+          <div class="faq-item-content">
+            <p>Am einfachsten per Telefon: Ruf uns an (Nummern siehe <a href="#contact">Kontakt</a>) oder nutze unsere <a href="https://discord.gg/cvZYhA9sAB" target="_blank" rel="noopener noreferrer">Terminanfrage per Discord</a>. Wir melden uns zeitnah bei dir.</p>
+          </div>
+        </details>
+        <details class="faq-item scroll-reveal">
+          <summary>Welche Leistungen bietet ihr an?</summary>
+          <div class="faq-item-content">
+            <p>Portrait (Einzel & Pärchen), Familien-Shootings, animierte Bilder (z. B. GIFs), Automotive (Fahrzeugfotos), Design (Banner, Flyer) und Video. Alle Details unter <a href="#services">Leistungen</a> und <a href="#preise">Preisliste</a>.</p>
+          </div>
+        </details>
+        <details class="faq-item scroll-reveal">
+          <summary>Gibt es Rabatte oder Pakete?</summary>
+          <div class="faq-item-content">
+            <p>Ja. Bei bearbeiteten und Familien-Bildern gibt es jedes 5. Bild gratis, bei animierten Bildern jedes 4. Bild gratis. Importieren ist kostenlos. Genauere Konditionen stehen in der <a href="#preise">Preisliste</a>.</p>
+          </div>
+        </details>
+        <details class="faq-item scroll-reveal">
+          <summary>Was sind „animierte Bilder“?</summary>
+          <div class="faq-item-content">
+            <p>Animierte Bilder sind z. B. GIFs oder kurze bewegte Clips – ideal für Social Media oder persönliche Erinnerungen. Du findest Beispiele in unserer <a href="#gallery">Galerie</a> (Filter „Animiert“).</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-inner scroll-reveal">
+        <span class="section-label">Kontakt</span>
+        <h2>Kontakt & Team</h2>
+        <p class="contact-lead">Unser Sakura-Team erreichst du direkt per Telefon – einfach Nummer antippen zum Kopieren.</p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <div class="contact-row-info">
+              <span class="contact-name">Marcel Eichhörnchen</span>
+              <span class="contact-role">Geschäftsführung</span>
+            </div>
+            <button type="button" class="contact-tel btn-copy-tel" data-copy="0504" data-name="Marcel Eichhörnchen" aria-label="Telefonnummer 0504 kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>0504</span>
+            </button>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-info">
+              <span class="contact-name">Luca Eichhörnchen</span>
+              <span class="contact-role">Manager</span>
+            </div>
+            <button type="button" class="contact-tel btn-copy-tel" data-copy="0303" data-name="Luca Eichhörnchen" aria-label="Telefonnummer 0303 kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>0303</span>
+            </button>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-info">
+              <span class="contact-name">Carla Watson</span>
+              <span class="contact-role">Fotografin</span>
+            </div>
+            <button type="button" class="contact-tel btn-copy-tel" data-copy="939" data-name="Carla Watson" aria-label="Telefonnummer 939 kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>939</span>
+            </button>
+          </div>
+           <div class="contact-row">
+            <div class="contact-row-info">
+              <span class="contact-name">Dior Bonse</span>
+              <span class="contact-role">Fotograf</span>
+            </div>
+            <button type="button" class="contact-tel btn-copy-tel" data-copy="3105" data-name="Karim Aghy" aria-label="Telefonnummer 3105 kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>46824</span>
+            </button>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-info">
+              <span class="contact-name">Peter Diaz</span>
+              <span class="contact-role">Fotograf</span>
+            </div>
+            <button type="button" class="contact-tel btn-copy-tel" data-copy="3105" data-name="Karim Aghy" aria-label="Telefonnummer 3105 kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>54</span>
+            </button>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-info">
+              <span class="contact-name">Soula Diaz</span>
+              <span class="contact-role">Fotografin</span>
+            </div>
+            <button type="button" class="contact-tel btn-copy-tel" data-copy="3105" data-name="Karim Aghy" aria-label="Telefonnummer 3105 kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>505</span>
+            </button>
+          </div>
+        </div>
+        <p class="contact-note">Standort: Sakura Studio · PLZ 5064.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Termin-Button (unten, immer sichtbar) → Discord -->
+  <a href="https://discord.gg/cvZYhA9sAB" class="sticky-termin-btn" id="btnTerminAnfragen" aria-label="Termin anfragen (Discord)" target="_blank" rel="noopener noreferrer">
+    <span class="sticky-termin-text">Termin anfragen</span>
+    <i class="fa-solid fa-calendar-check sticky-termin-icon" aria-hidden="true"></i>
+  </a>
+
+  <!-- Back to Top -->
+  <a href="#hero" class="back-to-top" id="backToTop" aria-label="Nach oben">↑</a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/Logo_Hell.png" alt="Sakura Studio" class="logo logo-light">
+            <img src="assets/Logo_Dunkel.png" alt="Sakura Studio" class="logo logo-dark">
+          </div>
+          <p class="footer-tagline">Professionelle Shootings zu fairen Preisen.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer-Navigation">
+          <ul class="footer-links">
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#gallery">Galerie</a></li>
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#mitarbeiter">Mitarbeiter</a></li>
+            <li><a href="#testimonials">Stimmen</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="footer-bottom">
+          <p class="footer-copy">© Sakura Studio</p>
+          <p class="footer-disclaimer">Nur zu RP-/Unterhaltungszwecken. Keine Verbindung zu Drittanbietern.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Termin anfragen -->
+  <div class="termin-modal" id="terminModal" role="dialog" aria-modal="true" aria-labelledby="terminModalTitle" aria-hidden="true">
+    <div class="termin-modal-backdrop"></div>
+    <div class="termin-modal-box">
+      <button type="button" class="termin-modal-close" id="terminModalClose" aria-label="Schließen">×</button>
+      <h2 class="termin-modal-title" id="terminModalTitle">Termin anfragen</h2>
+      <form class="termin-form" id="terminForm">
+        <div class="termin-form-row">
+          <span class="termin-label">Art der Anfrage</span>
+          <div class="termin-toggle" id="terminArtToggle" role="tablist">
+            <button type="button" class="termin-toggle-btn termin-toggle-btn--active" data-art="foto" role="tab" aria-selected="true">Fotos</button>
+            <button type="button" class="termin-toggle-btn" data-art="video" role="tab" aria-selected="false">Videos</button>
+          </div>
+          <input type="hidden" name="art" id="terminArt" value="foto">
+        </div>
+        <div class="termin-form-row">
+          <label class="termin-label" for="terminVorname">Vorname</label>
+          <input type="text" id="terminVorname" name="vorname" class="termin-input" required autocomplete="given-name">
+        </div>
+        <div class="termin-form-row">
+          <label class="termin-label" for="terminNachname">Nachname</label>
+          <input type="text" id="terminNachname" name="nachname" class="termin-input" required autocomplete="family-name">
+        </div>
+        <div class="termin-form-row">
+          <label class="termin-label" for="terminTel">Telefon</label>
+          <input type="tel" id="terminTel" name="tel" class="termin-input" required autocomplete="tel" placeholder="z. B. 3105">
+        </div>
+        <div class="termin-form-row">
+          <label class="termin-label" for="terminKategorieTrigger" id="terminKategorieLabel">Foto-Kategorie</label>
+          <div class="termin-custom-dropdown" id="terminKategorieDropdown">
+            <input type="hidden" name="kategorie" id="terminKategorie" value="" required>
+            <button type="button" class="termin-dropdown-trigger" id="terminKategorieTrigger" aria-haspopup="listbox" aria-expanded="false">
+              <span class="termin-dropdown-value">— Bitte wählen —</span>
+              <i class="fa-solid fa-chevron-down termin-dropdown-icon" aria-hidden="true"></i>
+            </button>
+            <div class="termin-dropdown-panel" id="terminKategoriePanel" role="listbox" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="termin-form-row">
+          <label class="termin-label" for="terminFotografTrigger" id="terminFotografLabel">Fotograf*in (optional)</label>
+          <div class="termin-custom-dropdown" id="terminFotografDropdown">
+            <input type="hidden" name="fotograf" id="terminFotograf" value="">
+            <button type="button" class="termin-dropdown-trigger" id="terminFotografTrigger" aria-haspopup="listbox" aria-expanded="false">
+              <span class="termin-dropdown-value">Keine Präferenz</span>
+              <i class="fa-solid fa-chevron-down termin-dropdown-icon" aria-hidden="true"></i>
+            </button>
+            <div class="termin-dropdown-panel" id="terminFotografPanel" role="listbox" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="termin-form-row termin-disclaimer-wrap">
+          <label class="termin-disclaimer-label">
+            <input type="checkbox" name="datenschutz" id="terminDatenschutz" class="termin-disclaimer-checkbox" required>
+            <span class="termin-disclaimer-checkbox-custom" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <span class="termin-disclaimer-text">Ich willige ein, dass meine Angaben zur Bearbeitung der Terminanfrage an Sakura Studio weitergegeben werden.</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary termin-submit">Anfrage senden</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast-Container (stapelt bis max 2) -->
+  <div class="toast-stack" id="toastStack" role="status" aria-live="polite"></div>
+
+  <!-- Music-Widget (Spotify-Style, links unten) -->
+  <div class="music-widget" id="musicWidget">
+    <div class="music-widget-cover" aria-hidden="true">
+        <img src="assets/Logo_Hell.png" alt="" class="music-widget-cover-logo logo-light">
+        <img src="assets/Logo_Dunkel.png" alt="" class="music-widget-cover-logo logo-dark">
+      </div>
+    <div class="music-widget-main">
+      <div class="music-widget-info">
+        <span class="music-widget-label">Sakura Radio</span>
+        <span class="music-widget-status" id="musicStatus">Pausiert</span>
+      </div>
+      <div class="music-widget-actions">
+        <button type="button" class="music-widget-toggle" id="musicToggle" aria-label="Wiedergabe an/aus">
+          <span class="music-icon music-icon-play">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="music-icon music-icon-pause">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </span>
+        </button>
+        <button type="button" class="music-btn music-mute" id="musicMute" aria-label="Stummschalten" title="Stummschalten">🔊</button>
+        <button type="button" class="music-widget-expand" id="musicExpand" aria-label="Lautstärke">◐</button>
+      </div>
+    </div>
+    <div class="music-widget-controls" id="musicControls">
+      <button type="button" class="music-btn music-btn-down" id="musicVolDown" aria-label="Leiser">−</button>
+      <input type="range" class="music-volume" id="musicVolume" min="0" max="100" value="1" aria-label="Lautstärke">
+      <button type="button" class="music-btn music-btn-up" id="musicVolUp" aria-label="Lauter">+</button>
+    </div>
+  </div>
+  <audio id="ambientAudio" preload="none" crossorigin="anonymous">
+    <source src="https://stream.srg-ssr.ch/m/rsc_de/mp3_128" type="audio/mpeg">
+  </audio>
+  <audio id="toastSound" preload="auto">
+    <source src="sounds/sound.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="sendSound" preload="auto">
+    <source src="sounds/sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Lightbox (Modal zum Vergrößern) -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop"></div>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Schließen">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="lightbox-fly" id="lightboxFly">
+      <figure class="lightbox-frame">
+        <img src="" alt="" id="lightboxImg">
+      </figure>
+    </div>
+    <p class="lightbox-hint">Klick außerhalb oder Escape zum Schließen</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
